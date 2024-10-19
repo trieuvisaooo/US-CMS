@@ -1,0 +1,40 @@
+header {
+    margin-top: 20px;
+    padding-left: 85px;
+    padding-right: 85px;
+    font-size: 16px;
+    font-weight: 500;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border: 0px;
+}
+
+a {
+    color: #FFF !important;
+}
+
+.nav-link.active {
+    font-weight: 500;
+    opacity: 0.5;
+}
+
+.nav-link :hover {
+    opacity: 0.5;
+}
+
+
+#register-btn {
+    padding: 2px 20px;
+    border-radius: 24px;
+    border: 1px solid white;
+    color: #000000;
+}
+
+#login-btn {
+    padding: 2px 20px;
+    border-radius: 24px;
+    border: 1px solid white;
+    color: #ffffff;
+    background-color: #008170;
+}

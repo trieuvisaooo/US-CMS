@@ -1,0 +1,59 @@
+{% extends "base_pages/base.html" %}
+{% load static %}
+
+{% block title %}Đăng nhập{% endblock title %}
+
+{% block style %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock style %}
+
+{% block script %}
+    <script src="{% static 'js/index.js' %}"></script>
+{% endblock script %}
+
+{% block header %}
+    {% include "base_pages/header.html" %}
+{% endblock header %}
+
+{% block content %}
+    <main id="login-frame">
+        <div class="container rounded-5 login-background p-3">
+        <div class="row align-items-center g-lg-5 py-5 px-3">
+            <h2 class="display-5 fw-normal lh-1 text-main-color text-center" style="font-family: Black Ops One">ĐĂNG NHẬP</h2>
+
+            <div class="col-lg-7 text-center text-lg-start">
+                <img src="{% static "assets/svg/login.svg" %}">
+            </div>
+            <div class="col-md-10 mx-auto col-lg-5">
+            <form method="POST" class="p-4 p-md-5">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <div class="form-floating mb-5">
+                <h5 class="fs-4 fw-normal text-main-color" style="font-family: Black Ops One">TÀI KHOẢN</h5>
+                <div class="mb-3">
+                    {{ form.user_id }}
+                </div>
+                </div>
+                <div class="form-floating mb-1">
+                    <h5 class="fs-4 fw-normal text-main-color" style="font-family: Black Ops One">MẬT KHẨU</h5>
+                    <div class="mb-3 ">
+                        {{ form.user_password }}
+                    </div>
+                </div>
+                <div class="mb-5">
+                    <a href="#" style="text-decoration:none;">Quên mật khẩu?</a>
+                </div>
+                <div class="login-btn">
+                <button id="login-btn" class="w-50 btn btn-lg rounded-pill" type="submit">Đăng nhập</button>
+                </div>             
+                <hr class="my-4"> 
+            </form>
+            </div>
+        </div>
+        </div>
+    </main>
+{% endblock content %}

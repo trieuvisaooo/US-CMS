@@ -1,0 +1,36 @@
+{% extends "base_pages/base.html" %}
+{% load static %}
+
+{% block title %}Về chúng tôi{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+{% endblock style %}
+
+{% block script %}
+    <script src="{% static 'js/index.js' %}"></script>
+{% endblock script %}
+
+{% block header %}
+    {% include "base_pages/header.html" %}
+{% endblock header %}
+
+{% block content %}
+    <main class="mb-4">
+        <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <h1 class='text-center' style="font-family: Black Ops One">{{club_infor.club_name}}</h1>
+                <p>
+                    {{club_infor.club_description}}
+                </p>
+            </div>
+
+            <img class="col-md-10 col-lg-8 col-xl-7" src="{{club_infor.club_imgUrl}}">
+        </div>
+        </div>
+    </main>
+{% endblock content %}

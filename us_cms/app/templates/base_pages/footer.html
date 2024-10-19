@@ -1,0 +1,33 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+
+<footer>
+    <div class="row justify-content-between">
+      <div class="col-6 col-md-2 mb-3 text-start">
+
+      </div>
+
+      <div class="col-md-5 offset-md-1 mb-3 text-end">
+        <form>
+          <h5>Đăng ký đọc bài</h5>
+          <p>Thông báo hàng tháng về những gì mới và thú vị từ chúng tôi.</p>
+          <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+            <label for="newsletter1" class="visually-hidden">Email address</label>
+            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+            <button class="btn btn-primary submit-btn" type="button">Gửi</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-1 border-top">
+      <p>© 2024 {{club_infor.club_name}}. All rights reserved.</p>
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a class="link-body-emphasis" href="#"><img src="{% static "assets/svg/x.svg" %}"></a></li>
+        <li class="ms-3"><a class="link-body-emphasis" href="#"><img src="{% static "assets/svg/facebook.svg" %}"></a></li>
+        <li class="ms-3"><a class="link-body-emphasis" href="#"><img src="{% static "assets/svg/instagram.svg" %}"></a></li>
+      </ul>
+    </div>
+</footer>
+
+

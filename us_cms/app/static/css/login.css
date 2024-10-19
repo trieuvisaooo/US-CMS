@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@100;300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Saira Extra Condensed', sans-serif;
+}
+
+#login-frame {
+    margin: 20px 120px;
+}
+
+.login-background {
+    background: #232D3F;
+}
+
+.text-main-color {
+    color: #FFF;
+}
+
+.login-btn {
+    display: flex;
+    justify-content: center;
+}
+
+#floatingPassword, #floatingInput {
+    color: #FFF;
+    background: #232D3F;
+    border: none;
+    border-radius: 32px;
+    border: 1px solid #FFF;
+    text-justify: auto;
+}
+

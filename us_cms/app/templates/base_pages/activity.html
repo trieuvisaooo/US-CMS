@@ -1,0 +1,73 @@
+{% extends "base_pages/base.html" %}
+{% load static %}
+
+{% block title %}Hoạt động{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom_btn.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+{% endblock style %}
+
+{% block script %}
+    <script src="{% static 'js/index.js' %}"></script>
+{% endblock script %}
+
+{% block header %}
+    {% include "base_pages/header.html" %}
+{% endblock header %}
+
+{% block content %}
+    <main class="my-5" style="margin-left: 85px; margin-right: 85px;">
+        <div class="container">
+            <section class="text-center text-md-start">
+                <h2 class="mb-5" style="font-family: Black Ops One;">HOẠT ĐỘNG CÂU LẠC BỘ</h2>
+
+                {% for activity in page_obj %}
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="bg-image hover-overlay shadow-1-strong rounded" data-mdb-ripple-init data-mdb-ripple-color="light">
+                                <img src="{{ activity.activity_thumbnailUrl }}" class="img-fluid" style="border-radius: 10px"/>
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                        </div>
+                
+                        <div class="col-md-8 mb-4">
+                            <h5>{{ activity.activity_title }}</h5>
+                            <p>{{ activity.activity_subtitle }}</p>
+                            <button type="button" class="btn btn-primary custom-btn" data-mdb-ripple-init onclick="window.location.href='{% url 'activity_detail' activity_id=activity.activity_id%}';">Đọc thêm</button>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>Không có hoạt động nào để hiển thị.</p>
+                {% endfor %}
+            </section>
+
+            <nav class="my-4" aria-label="...">
+                <ul class="pagination pagination-circle justify-content-center">
+                    {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link text-dark" href="?page={{ page_obj.previous_page_number }}" tabindex="-1"><</a>
+                        </li>
+                    {% endif %}
+        
+                    {% for num in page_obj.paginator.page_range %}
+                        <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+                            <a class="page-link text-dark" href="?page={{ num }}">{{ num }}</a>
+                        </li>
+                    {% endfor %}
+        
+                    {% if page_obj.has_next %}
+                        <li class="page-item">
+                            <a class="page-link text-dark" href="?page={{ page_obj.next_page_number }}">></a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </main>
+{% endblock content %}

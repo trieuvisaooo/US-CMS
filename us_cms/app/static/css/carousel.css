@@ -1,0 +1,35 @@
+.carousel-item img {
+    border-radius: 10px; /* Rounded corners for images */
+}
+.card {
+    border: none; /* Remove card borders */
+    transition: transform 0.2s; /* Add hover effect */
+}
+.card:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+
+.custom-carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5%; /* Adjust width to make buttons larger or smaller */
+    z-index: 1;
+}
+
+.carousel-control-prev {
+    left: 0;
+}
+
+.carousel-control-next {
+    right: 0;
+}
+
+/* Optional: If you want the controls to be more prominent */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+}

@@ -1,0 +1,47 @@
+{% extends "base_pages/base.html" %}
+{% load static %}
+
+{% block title %}Hoạt động{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom_btn.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+{% endblock style %}
+
+{% block script %}
+    <script src="{% static 'js/index.js' %}"></script>
+{% endblock script %}
+
+{% block header %}
+    {% include "base_pages/header.html" %}
+{% endblock header %}
+
+{% block content %}
+    <main class="my-5 px-3 px-md-5">
+        <article class="container-fluid">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-4">{{ activity.activity_title }}</h1>
+                    <img src="{{ activity.activity_thumbnailUrl }}" class="img-fluid rounded shadow-sm mb-4" alt="Activity Thumbnail">
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+                    <div class="content-body mb-5">
+                        <p class="lead">{{ activity.activity_content|safe }}</p>
+                    </div>
+
+                    <div class="d-flex justify-content-end">
+                        <button class="btn btn-primary float-right custom-btn" onclick="window.location.href='{% url 'home'%}';"
+                        >Edit Post</button>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+{% endblock content %}
